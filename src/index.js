@@ -18,7 +18,7 @@ export default class CustomCallbackBackend {
 
   init(services, options = {}, i18nextOptions = {}) {
     this.options = {
-      customCreate: this.missingCustomCallback("Create"),
+      customCreate: () => {},
       customLoad: this.missingCustomCallback("Load"),
       customLoadMulti: this.missingCustomCallback("LoadMulti"),
       ...i18nextOptions,

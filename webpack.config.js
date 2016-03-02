@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-var webpack = require('webpack');
+var webpack = require("webpack");
 
 var plugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
   })
 ];
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
@@ -24,16 +24,16 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel-loader'],
+      loaders: ["babel-loader"],
       exclude: /node_modules/
     }]
   },
   output: {
-    library: 'library-boilerplate',
-    libraryTarget: 'umd'
+    library: "i18nextCustomCallbackBackend",
+    libraryTarget: "umd"
   },
   plugins: plugins,
   resolve: {
-    extensions: ['', '.js']
+    extensions: ["", ".js"]
   }
 };
